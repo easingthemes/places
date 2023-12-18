@@ -3,7 +3,7 @@ version: 1
 indices:
   website: &website
     exclude:
-      - '/**/*--teaser'
+      - '/**/*-teaser'
     target: /query-index
     properties:
       author:
@@ -46,7 +46,7 @@ indices:
 
   locations: &locations
     include:
-      - '/**/*--teaser'
+      - '/**/*-teaser'
     target: /locations/query-index
     properties:
       title:
