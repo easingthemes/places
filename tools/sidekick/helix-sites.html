@@ -1,7 +1,13 @@
 Test 2
 <script>
-  console.log(window.hlx.sidekickConfig, window.hlx);
-    document.addEventListener('loggedin', (s) => {
-      console.log(s, window.hlx.sidekickConfig, window.hlx);
-    });
+  console.log(window.hlx);
+  window.addEventListener('loggedin', (s) => {
+    console.log(s, window.hlx.sidekickConfig, window.hlx);
+  });
+
+  window.addEventListener('message', function (e) {
+    const data = JSON.parse(e.data);
+    // Where does the message come from
+    console.log('data', data, window.hlx);
+  });
 </script>
