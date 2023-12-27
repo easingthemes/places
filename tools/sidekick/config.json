@@ -1,5 +1,5 @@
 {
-  "project": "helix Sites1",
+  "project": "helix Sites",
   "host": "www.cafeandmore.me",
   "plugins": [{
     "id": "helix-sites",
