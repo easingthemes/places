@@ -10,4 +10,10 @@ Test 2
     // Where does the message come from
     console.log('data', data, window.hlx);
   });
+  (async () => {
+    const r = await fetch('https://admin.hlx.page/profile');
+    const profile = await r.json();
+    console.log({ profile });
+  })();
+
 </script>
