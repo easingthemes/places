@@ -1,0 +1,10 @@
+{
+  "project": "helix Sites",
+  "host": "www.cafeandmore.me",
+  "plugins": [{
+    "id": "helix-sites",
+    "title": "Explore",
+    "isPalette": true,
+    "url": "/tools/sidekick/helix-sites.html"
+  }]
+}
