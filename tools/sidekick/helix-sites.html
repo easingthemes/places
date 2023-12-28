@@ -1,4 +1,5 @@
 Test 2
+<button class="login">login</button>
 <script type="module">
   function getAdminUrl({ owner, repo, ref }, api, path = '') {
     return new URL([
@@ -11,21 +12,32 @@ Test 2
     ].join(''));
   }
 
-  // const loginUrl = getAdminUrl(sk.config, 'login');
-  // let extensionId = 'helix-sites';
-  // loginUrl.searchParams.set('extensionId', extensionId);
-  // const loginWindow = window.open(loginUrl.toString());
+  function getParams() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const ref = searchParams.get('ref');
+    const repo = searchParams.get('repo');
+    const owner = searchParams.get('owner');
+    return { ref, repo, owner };
+  }
 
-  document.addEventListener('sidekick-ready', () => {
-    document.querySelector('helix-sidekick')
-      .addEventListener('custom:foo', (e) => e);
-  }, { once: true });
+  function login() {
+    const params = getParams();
+    // const host = searchParams.get('host');
+    const loginUrl = getAdminUrl(params, 'login');
+    let extensionId = 'helix-sites';
+    loginUrl.searchParams.set('extensionId', extensionId);
+    const loginWindow = window.open(loginUrl.toString());
+  }
+  const loginButton = document.querySelector('.login');
+  loginButton.addEventListener('click', () => {
+    login();
+  })
 </script>
 <script>
   const sk = document.querySelector('helix-sidekick');
   console.log(window.hlx, sk);
   window.addEventListener('loggedin', (s) => {
-    console.log(s, window.hlx.sidekickConfig, window.hlx);
+    console.log('loginggg', s, window.hlx.sidekickConfig, window.hlx);
   });
 
   window.addEventListener('message', function (e) {
