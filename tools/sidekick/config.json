@@ -5,7 +5,9 @@
     "id": "helix-sites",
     "title": "Explore",
     "isPalette": true,
+    "passConfig": true,
+    "passReferrer": true,
     "url": "/tools/sidekick/helix-sites.html",
-    "paletteRect": "top: 48px; left: 0px; width: auto; right: 0;"
+    "paletteRect": "top: 49px; left: 0px; width: auto; right: 0;"
   }]
 }

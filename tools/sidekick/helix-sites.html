@@ -1,6 +1,29 @@
 Test 2
+<script type="module">
+  function getAdminUrl({ owner, repo, ref }, api, path = '') {
+    return new URL([
+      'https://admin.hlx.page/',
+      api,
+      `/${owner}`,
+      `/${repo}`,
+      `/${ref}`,
+      path,
+    ].join(''));
+  }
+
+  // const loginUrl = getAdminUrl(sk.config, 'login');
+  // let extensionId = 'helix-sites';
+  // loginUrl.searchParams.set('extensionId', extensionId);
+  // const loginWindow = window.open(loginUrl.toString());
+
+  document.addEventListener('sidekick-ready', () => {
+    document.querySelector('helix-sidekick')
+      .addEventListener('custom:foo', (e) => e);
+  }, { once: true });
+</script>
 <script>
-  console.log(window.hlx);
+  const sk = document.querySelector('helix-sidekick');
+  console.log(window.hlx, sk);
   window.addEventListener('loggedin', (s) => {
     console.log(s, window.hlx.sidekickConfig, window.hlx);
   });
