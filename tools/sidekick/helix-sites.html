@@ -1,5 +1,6 @@
 Test 2
 <button class="login">login</button>
+<button class="profile">profile</button>
 <script type="module">
   function getAdminUrl({ owner, repo, ref }, api, path = '') {
     return new URL([
@@ -28,27 +29,22 @@ Test 2
     loginUrl.searchParams.set('extensionId', extensionId);
     const loginWindow = window.open(loginUrl.toString());
   }
-  const loginButton = document.querySelector('.login');
-  loginButton.addEventListener('click', () => {
-    login();
-  })
-</script>
-<script>
-  const sk = document.querySelector('helix-sidekick');
-  console.log(window.hlx, sk);
-  window.addEventListener('loggedin', (s) => {
-    console.log('loginggg', s, window.hlx.sidekickConfig, window.hlx);
-  });
 
-  window.addEventListener('message', function (e) {
-    const data = JSON.parse(e.data);
-    // Where does the message come from
-    console.log('data', data, window.hlx);
-  });
-  (async () => {
+  async function getProfile() {
     const r = await fetch('https://admin.hlx.page/profile');
     const profile = await r.json();
     console.log({ profile });
-  })();
+    return profile;
+  };
 
+  const loginButton = document.querySelector('.login');
+  loginButton.addEventListener('click', () => {
+    login();
+  });
+
+  const profileButton = document.querySelector('.profile');
+  profileButton.addEventListener('click', () => {
+    getProfile().then(p => console.log('p', p)).catch(e => console.error('e', e));
+  });
 </script>
+
