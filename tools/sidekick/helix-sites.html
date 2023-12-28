@@ -24,7 +24,7 @@ Test 2
     const params = getParams();
     // const host = searchParams.get('host');
     const loginUrl = getAdminUrl(params, 'login');
-    let extensionId = 'helix-sites';
+    let extensionId = 'cookie';
     loginUrl.searchParams.set('extensionId', extensionId);
     const loginWindow = window.open(loginUrl.toString());
   }
