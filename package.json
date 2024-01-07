@@ -5,6 +5,7 @@
   "description": "Starter project for Adobe Helix",
   "scripts": {
     "serve": "aem up",
+    "index": "aem up --print-index",
     "lint:js": "eslint .",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
     "lint": "npm run lint:js && npm run lint:css",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
+    "@adobe/aem-cli": "^16.1.5",
     "@babel/core": "7.23.5",
     "@babel/eslint-parser": "7.23.3",
     "chai": "4.3.7",
